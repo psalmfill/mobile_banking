@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Banking</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+</head>
+
+<body>
+    <header>
+        <h1>A framework of mobile banking face recognition authentication</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+            <li><a href="{% url 'transfer' %}">Transfer</a></li>
+            <li><a href="{% url 'bill_payment' %}">Bill Payment</a></li>
+            <li><a href="{% url 'account_management' %}">Account Management</a></li>
+            <li><a href="{% url 'customer_support' %}">Customer Support</a></li>
+        </ul>
+    </nav>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer>
+        <p>&copy; 2024 Mobile Banking. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

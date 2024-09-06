@@ -1,0 +1,239 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<body>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+}
+
+nav {
+    background-color: #333;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 1em;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 1em;
+    display: block;
+}
+
+nav ul li a:hover {
+    background-color: #575757;
+}
+
+main {
+    padding: 2em;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        margin: 0.5rem 0;
+    }
+}
+
+
+/* Customer Support Page Styles */
+.customer-support-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.customer-support-container h2 {
+    margin-bottom: 2rem;
+    color: #007bff;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.support-section {
+    margin-bottom: 2rem;
+}
+
+.support-section h3 {
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.faq-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.faq-list li {
+    margin-bottom: 0.5rem;
+}
+
+.faq-list a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.faq-list a:hover {
+    text-decoration: underline;
+}
+
+.live-chat {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.live-chat p {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.chat-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.chat-button:hover {
+    background-color: #0056b3;
+}
+
+.contact-info {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.contact-info li {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.contact-info li::before {
+    content: "•";
+    color: #007bff;
+    font-weight: bold;
+    display: inline-block;
+    width: 1rem;
+    margin-left: -1rem;
+}
+
+/* Facial Login Page Styles */
+.login-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.login-container h2 {
+    margin-bottom: 1rem;
+    color: #007bff;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.form-group input[type="file"] {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+    </style>
+</body>
+<main>
+    <div class="customer-support-container">
+        <h2>Customer Support</h2>
+        <section class="support-section">
+            <h3>Frequently Asked Questions</h3>
+            <ul class="faq-list">
+                <li><a href="#">How to reset my password?</a></li>
+                <li><a href="#">How to transfer money?</a></li>
+                <li><a href="#">How to contact customer service?</a></li>
+                <li><a href="#">What are the bank's working hours?</a></li>
+                <li><a href="#">How to update my profile information?</a></li>
+            </ul>
+        </section>
+        <section class="support-section">
+            <h3>Live Chat</h3>
+            <div class="live-chat">
+                <p>Chat with our support team for immediate assistance.</p>
+                <button class="chat-button">Start Live Chat</button>
+            </div>
+        </section>
+        <section class="support-section">
+            <h3>Contact Information</h3>
+            <p>If you need further assistance, you can reach us at:</p>
+            <ul class="contact-info">
+                <li>Email: support@mobilebanking.com</li>
+                <li>Phone: +123 456 7890</li>
+                <li>Address: 123 Bank Street, City, Country</li>
+            </ul>
+        </section>
+    </div>
+</main>
+{% endblock %}

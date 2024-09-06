@@ -1,0 +1,265 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<head>
+    <style>
+         body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+}
+
+nav {
+    background-color: #333;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 1em;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 1em;
+    display: block;
+}
+
+nav ul li a:hover {
+    background-color: #575757;
+}
+
+main {
+    padding: 2em;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        margin: 0.5rem 0;
+    }
+}
+
+
+/* Register Page Styles */
+.register-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.register-container h2 {
+    margin-bottom: 1.5rem;
+    color: #007bff;
+    font-size: 1.75rem;
+    text-align: center;
+}
+
+.register-container .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.register-container .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.register-container .form-group input[type="text"],
+.register-container .form-group input[type="email"],
+.register-container .form-group input[type="password"],
+.register-container .form-group input[type="file"] {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+
+.register-container .form-group input[type="file"] {
+    padding: 0.5rem 0;
+}
+
+.register-container .form-group input:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.camera-container {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.camera-container video {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.camera-container button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.camera-container button:hover {
+    background-color: #0056b3;
+}
+
+.camera-container canvas {
+    display: none;
+}
+
+.camera-container img {
+    margin-top: 1rem;
+    max-width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.error-message {
+    color: red;
+    margin-top: 1rem;
+}
+
+.register-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.register-button:hover {
+    background-color: #0056b3;
+}
+
+.form-footer {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.form-footer a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.form-footer a:hover {
+    text-decoration: underline;
+}
+
+
+    </style>
+</head>
+<main>
+    <div class="register-container">
+        <h2>Register</h2>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password1" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="confirm_password">Confirm Password</label>
+                <input type="password" id="password2" name="confirm_password" required>
+            </div>
+            <div class="form-group">
+                <label for="profile_picture">Profile Picture (optional)</label>
+                <input type="file" id="profile_picture" name="profile_picture" accept="image/*">
+            </div>
+            <div class="camera-container">
+                <h3>Take a Live Picture</h3>
+                <video id="video" width="320" height="240" autoplay></video>
+                <button type="button" id="capture">Capture Photo</button>
+                <canvas id="canvas" width="320" height="240" style="display: none;"></canvas>
+                <img id="photo" src="" alt="Captured Photo" style="display: none;" />
+                <input type="hidden" id="profile_picture" name="profile_picture_data">
+                <div class="error-message" id="camera-error-message"></div>
+            </div>
+            <button type="submit" class="register-button">Register</button>
+        </form>
+        <div class="form-footer">
+            <p>Already have an account? <a href="{% url 'login' %}">Login here</a></p>
+        </div>
+    </div>
+</main>
+
+<script>
+    // Access the user's camera
+    const video = document.getElementById('video');
+    const canvas = document.getElementById('canvas');
+    const photo = document.getElementById('photo');
+    const captureButton = document.getElementById('capture');
+    const profilePictureData = document.getElementById('profile_picture_data');
+    const cameraErrorMessage = document.getElementById('camera-error-message');
+
+    navigator.mediaDevices.getUserMedia({ video: true })
+        .then(stream => {
+            video.srcObject = stream;
+            video.play();
+        })
+        .catch(err => {
+            cameraErrorMessage.textContent = "Error accessing camera: " + err.message;
+        });
+
+    captureButton.addEventListener('click', () => {
+        canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+        const dataURL = canvas.toDataURL('image/png');
+        photo.src = dataURL;
+        photo.style.display = 'block';
+        profilePictureData.value = dataURL;
+    });
+</script>
+{% endblock %}

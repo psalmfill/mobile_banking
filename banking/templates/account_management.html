@@ -1,0 +1,183 @@
+<!--{% extends 'base.html' %}-->
+
+<!--{% block content %}-->
+<!--<h2>Account Management</h2>-->
+<!--<div class="account-details">-->
+<!--    <h3>Account Number: {{ account.account_number }}</h3>-->
+<!--    <h3>Balance: ${{ account.balance }}</h3>-->
+<!--</div>-->
+<!--<h3>Transaction History</h3>-->
+<!--<ul>-->
+<!--    {% for transaction in transactions %}-->
+<!--    <li>{{ transaction.date }} - {{ transaction.transaction_type }} - ${{ transaction.amount }}</li>-->
+<!--    {% endfor %}-->
+<!--</ul>-->
+<!--{% endblock %}-->
+
+
+{% extends 'base.html' %}
+
+{% block content %}
+<head>
+    <style>
+          body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+}
+
+nav {
+    background-color: #333;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 1em;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 1em;
+    display: block;
+}
+
+nav ul li a:hover {
+    background-color: #575757;
+}
+
+main {
+    padding: 2em;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        margin: 0.5rem 0;
+    }
+}
+
+/* Dashboard Container */
+.dashboard-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.account-details, .transactions, .notifications {
+    margin-bottom: 2rem;
+}
+
+.account-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+}
+
+.account-info div {
+    text-align: center;
+}
+
+.transactions ul, .notifications ul {
+    list-style: none;
+    padding: 0;
+}
+
+.transactions li, .notifications li {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem;
+    background-color: #f9f9f9;
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+}
+
+.transactions li span, .notifications li {
+    flex: 1;
+    text-align: center;
+}
+
+.transactions li span:nth-child(1) {
+    text-align: left;
+}
+
+.transactions li span:nth-child(3) {
+    text-align: right;
+}
+
+    </style>
+</head>
+<main class="dashboard-container">
+    <section class="account-details">
+        <h2>Account Management</h2>
+        <div class="account-info">
+            <div>
+                <h3>Account Number:</h3>
+                <p>{{ account.account_number }}</p>
+            </div>
+            <div>
+                <h3>Balance:</h3>
+                <p>${{ account_balance }}</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="transactions">
+        <h3>Recent Transactions</h3>
+        <ul>
+            {% for transaction in recent_transactions %}
+            <li>
+                <span>{{ transaction.date }}</span>
+                <span>{{ transaction.transaction_type }}</span>
+                <span>${{ transaction.amount }}</span>
+            </li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <section class="notifications">
+        <h3>Notifications</h3>
+        <ul>
+            {% for notification in notifications %}
+            <li>{{ notification }}</li>
+            {% endfor %}
+        </ul>
+    </section>
+</main>
+{% endblock %}

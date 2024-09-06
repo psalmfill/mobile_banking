@@ -1,0 +1,647 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+}
+
+nav {
+    background-color: #333;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 1em;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 1em;
+    display: block;
+}
+
+nav ul li a:hover {
+    background-color: #575757;
+}
+
+main {
+    padding: 2em;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        margin: 0.5rem 0;
+    }
+}
+
+/* Dashboard Page Styles */
+.dashboard-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-container h2 {
+    margin-bottom: 1rem;
+    color: #007bff;
+}
+
+.dashboard-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.dashboard-info div {
+    flex: 1;
+    padding: 1rem;
+    margin: 0 0.5rem;
+    background: #f9f9f9;
+    border-radius: 4px;
+}
+
+.dashboard-info div h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.dashboard-info div p {
+    font-size: 1rem;
+    color: #666;
+}
+
+
+
+/* Transfer Page Styles */
+.transfer-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.transfer-container h2 {
+    margin-bottom: 1.5rem;
+    color: #007bff;
+    font-size: 1.75rem;
+    text-align: center;
+}
+
+.transfer-container .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.transfer-container .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.transfer-container .form-group input[type="text"],
+.transfer-container .form-group input[type="number"],
+.transfer-container .form-group select,
+.transfer-container .form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+
+.transfer-container .form-group select {
+    height: 2.5rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%204%205%22%3E%3Cpath%20fill%3D%22%23666%22%20d%3D%22M2%200L0%202h4L2%200zM2%205L0%203h4L2%205z%22/%3E%3C/svg%3E') no-repeat right 0.75rem center;
+    background-size: 0.65rem 1.25rem;
+}
+
+.transfer-container .form-group textarea {
+    resize: vertical;
+}
+
+.transfer-container .form-group input:focus,
+.transfer-container .form-group select:focus,
+.transfer-container .form-group textarea:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.transfer-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.transfer-button:hover {
+    background-color: #0056b3;
+}
+/* Bill Payment Page Styles */
+.bill-payment-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.bill-payment-container h2 {
+    margin-bottom: 1rem;
+    color: #007bff;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Account Management Page Styles */
+.account-management-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.account-management-container h2 {
+    margin-bottom: 1rem;
+    color: #007bff;
+}
+
+.account-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.account-details div {
+    margin-bottom: 1rem;
+}
+
+.account-details div h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.account-details div p {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* Customer Support Page Styles */
+.customer-support-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.customer-support-container h2 {
+    margin-bottom: 2rem;
+    color: #007bff;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.support-section {
+    margin-bottom: 2rem;
+}
+
+.support-section h3 {
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.faq-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.faq-list li {
+    margin-bottom: 0.5rem;
+}
+
+.faq-list a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.faq-list a:hover {
+    text-decoration: underline;
+}
+
+.live-chat {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.live-chat p {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.chat-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.chat-button:hover {
+    background-color: #0056b3;
+}
+
+.contact-info {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.contact-info li {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.contact-info li::before {
+    content: "•";
+    color: #007bff;
+    font-weight: bold;
+    display: inline-block;
+    width: 1rem;
+    margin-left: -1rem;
+}
+
+/* Facial Login Page Styles */
+.login-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.login-container h2 {
+    margin-bottom: 1rem;
+    color: #007bff;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.form-group input[type="file"] {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Register Page Styles */
+.register-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.register-container h2 {
+    margin-bottom: 1.5rem;
+    color: #007bff;
+    font-size: 1.75rem;
+    text-align: center;
+}
+
+.register-container .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.register-container .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.register-container .form-group input[type="text"],
+.register-container .form-group input[type="email"],
+.register-container .form-group input[type="password"],
+.register-container .form-group input[type="file"] {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+
+.register-container .form-group input[type="file"] {
+    padding: 0.5rem 0;
+}
+
+.register-container .form-group input:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.camera-container {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.camera-container video {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.camera-container button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.camera-container button:hover {
+    background-color: #0056b3;
+}
+
+.camera-container canvas {
+    display: none;
+}
+
+.camera-container img {
+    margin-top: 1rem;
+    max-width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.error-message {
+    color: red;
+    margin-top: 1rem;
+}
+
+.register-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.register-button:hover {
+    background-color: #0056b3;
+}
+
+.form-footer {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.form-footer a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.form-footer a:hover {
+    text-decoration: underline;
+}
+
+/* Facial Login Page Styles */
+.facial-login-container {
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.facial-login-container h2 {
+    margin-bottom: 1rem;
+    color: #007bff;
+    font-size: 1.5rem;
+}
+
+.facial-login-container .facial-img {
+    width: 100%;
+    max-width: 300px;
+    margin: 1rem auto;
+}
+
+.facial-login-container .login-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.facial-login-container .login-button:hover {
+    background-color: #0056b3;
+}
+
+.facial-login-container .error-message {
+    color: red;
+    margin-top: 1rem;
+}
+
+.facial-login-container .link {
+    margin-top: 1rem;
+    display: block;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.facial-login-container .link:hover {
+    text-decoration: underline;
+}
+
+/* Login Page Styles */
+.login-container {
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.login-container h2 {
+    margin-bottom: 1rem;
+    color: #007bff;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.login-container .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.login-container .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.login-container .form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+
+.login-container .form-group input:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.login-container button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.login-container button:hover {
+    background-color: #0056b3;
+}
+
+.login-container .form-footer {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.login-container .form-footer a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.login-container .form-footer a:hover {
+    text-decoration: underline;
+}
